@@ -1,3 +1,44 @@
 <h2>
   导航
 </h2>
+
+<h4>
+  关键词:Route(路由), Navigation(导航),
+</h4>
+
+<section>
+  <h3>
+    步骤
+  </h3>
+  <ol>
+    <li>在main.js中添加import { ROUTER_PROVIDERS } from '@angular/router';和bootstrap(AppComponent, [
+      ROUTER_PROVIDERS,
+      ]);</li>
+    <li>在index.html中的&lt;head&gt;中添加&lt;base href="/"&gt;标签</li>
+    <li>在添加导航的ts文件中添加import { Route, Routes, ROUTER_DIRECTIVES } from '@angular/router';和directives: [
+      ROUTER_DIRECTIVES,
+      ],和@Routes([
+      new Route({ path: '/nav_router_demo', component: NavRouterDemo }),
+      new Route({ path: '/demo2', component: Demo2Demo }),
+      new Route({ path: '/demo3', component: Demo3Demo }),
+      ]),其中还需要导入用到的组件import { NavRouterDemo } from './demo/nav_router_demo/nav_router_demo';
+      import { Demo2Demo } from './demo/demo2/demo2.demo';
+      import { Demo3Demo } from './demo/demo3/demo3.demo';</li>
+    <li>在ts对应的html文件中添加
+      &lt;a [routerLink]="['nav_router_demo']"&gt;
+        导航
+      &lt;/a&gt;
+      &lt;a [routerLink]="['demo2']"&gt;
+        Demo2
+      &lt;/a&gt;
+      &lt;a [routerLink]="['demo3']"&gt;
+        Demo3
+      &lt;/a&gt;
+
+      &lt;main&gt;
+      &lt;router-outlet&gt;&lt;/router-outlet&gt;
+      &lt;/main&gt;</li>
+  </ol>
+</section>
+
+
